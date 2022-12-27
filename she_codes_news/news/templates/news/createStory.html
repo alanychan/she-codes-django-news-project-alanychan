@@ -6,11 +6,25 @@
 {% endblock %}
 
 {% block content %}
-
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_table }}
-    <input type="submit" value="submit">
-</form>
-
+<section id="story-section">
+    <h2 class="section-header">Write a New Story</h2>
+    <div class="story-wrapper">
+        <form id="story-form" class="form-horizontal" action="" method="post">
+            {% csrf_token %}
+            <!-- {{ form.as_table }} -->
+            <div class="form-group">
+                <div class="input-text">Title:
+                    <input id="title" class="form-control" type="text" name="title" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-text">Publication Date:
+                    <input id="pub_date" class="form-control" type="date" name="pub_date" value="" required="">
+                </div>
+            </div>
+            <textarea class="form-control" rows="10" name="content" value="" required=""></textarea>        
+            <button id="submit" class="btn send-button" type="submit" value="SEND">POST</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
