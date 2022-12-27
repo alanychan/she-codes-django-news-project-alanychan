@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+import os # Alany 26/12/2022
 
 from pathlib import Path
 
@@ -31,13 +32,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'news.apps.NewsConfig', # Alany 26/12/2022 - add new News App
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig', # Add new Users App
 ]
+
+# Alany 27/12/2022 - Reference to use CustomUser
+AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +60,7 @@ ROOT_URLCONF = 'she_codes_news.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'], # Alany 26/12/2022
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,5 +124,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# Alany 26/12/2022 - add directory to static files
+STATICFILES_DIRS = ( 
+    os.path.join(BASE_DIR, 'static'),
+)
+
+# Alany 27/12/2022 - login/out redirect
+LOGIN_REDIRECT_URL = 'news:index'
+LOGOUT_REDIRECT_URL = 'news:index'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
