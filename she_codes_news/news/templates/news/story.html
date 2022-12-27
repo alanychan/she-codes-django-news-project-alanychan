@@ -11,7 +11,12 @@
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        <!-- <img src="{% static '/news/images/placeholder-5.jpg' %}"> -->
+        {% if story.image_url %}
+            <img src="{{ story.image_url }}">
+        {% else %}
+            <img src="https://picsum.photos/300?random={{ story.id }}">
+        {% endif %}
         {{ story.content|linebreaks }}
     </div>
 </div>
