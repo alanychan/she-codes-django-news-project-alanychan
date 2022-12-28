@@ -1,34 +1,39 @@
+<!-- <head><title>Write a New Story</title></head> -->
+
 {% extends "base.html" %}
 {% load static %}
-
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 
 {% block content %}
-<section id="story-section">
+<section id="container-section">
     <h2 class="section-header">Write a New Story</h2>
-    <div class="story-wrapper">
+    <div class="form-wrapper">
         <form id="story-form" class="form-horizontal" action="" method="post">
             {% csrf_token %}
             <!-- {{ form.as_table }} -->
             <div class="form-group">
                 <div class="input-text"> 
-                    Title: <input id="title" class="form-control" type="text" name="title" value="" required="">
+                    <label for="id_title">Title:</label>
+                    <input id="id_title" class="form-control" type="text" name="title" value="" required="">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-text">
-                    Publication Date: <input id="pub_date" class="form-control" type="date" name="pub_date" value="" required="">
+                    <label for="id_pub_date">Pub date:</label>
+                    <input id="id_pub_date" class="form-control" type="date" name="pub_date" value="" required="">
                 </div>
             </div>
-            <textarea id="textarea" class="form-control" rows="15" name="content" value="" required=""></textarea>        
+            <label for="id_content">Content:</label>
+            <textarea id="id_content" class="form-control" cols="45" rows="10" name="content" value="" required=""></textarea>        
             <div class="form-group">
                 <div class="input-text"> 
-                    Image URL: <input id="image_url" class="form-control" type="text" name="image_url" value="" required="">
+                    <label for="id_image_url">Image URL:</label>
+                    <input id="id_image_url" class="form-control" type="text" name="image_url" value="" required="">
                 </div>
             </div>
-            <button id="submit" class="btn send-button" type="submit" value="SEND">POST</button>
+            <button id="id_submit" class="btn send-button" type="submit" value="SEND">POST</button>
         </form>
     </div>
 </section>

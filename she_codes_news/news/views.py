@@ -14,7 +14,7 @@ class IndexView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         #returns the 4 newest stories
-        context['latest_stories'] = NewsStory.objects.order_by('-pub_date')[:4]
+        context['latest_stories'] = NewsStory.objects.order_by('-pub_date', '-id')[:4]
         #returns the oldest 4 stories
         context['old_stories'] = NewsStory.objects.order_by('pub_date')[:4]
         

@@ -1,0 +1,61 @@
+<!-- <head><title>Create Your Account</title></head> -->
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="container-section">
+    <h2 class="section-header">Create Account</h2>
+    <div class="form-wrapper">
+        <form id="user-form" class="form-horizontal" method="post">
+            {% csrf_token %}
+            <!-- {{ form.as_table }} -->
+            <div class="form-group">
+                <div class="input-text"> 
+                    <label for="id_username">Username:</label> 
+                    <input id="id_username" class="form-control" type="text" name="username" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-text"> 
+                    <label for="id_first_name">First Name:</label>
+                    <input id="id_first_name" class="form-control" type="text" name="first_name" value="" required="">
+                </div>
+                <div class="input-text"> 
+                    <label for="id_last_name">Last Name:</label>
+                    <input id="id_last_name" class="form-control" type="text" name="last_name" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-text">
+                    <label for="id_email">Email:</label>
+                    <input id="id_email" class="form-control" type="text" name="email" value="" required="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-text">
+                    <label for="id_bio_content">About You:</label>
+                    <textarea id="id_bio_content" class="form-control" cols="45" rows="3" name="bio_content" value="" required=""></textarea>        
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-text">
+                    <label for="id_password">Password:</label>
+                    <input id="id_password" class="form-control" type="password" name="password" value="" required="">       
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-text"> 
+                    <label for="id_photo_url">Photo URL:</label>
+                    <input id="id_photo_url" class="form-control" type="text" name="photo_url" value="" required="">
+                </div>
+            </div>
+            <button id="id_submit" class="btn send-button" type="submit">SUBMIT</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
