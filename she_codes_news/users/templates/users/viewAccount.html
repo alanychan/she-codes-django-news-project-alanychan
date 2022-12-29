@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include "./profileCard.html" %}
+
+<h3>List of Stories<a href="{% url 'news:newStory' %}" id="id-write-story">Write New Story</a></h3>
+<div>
+    {% if user_stories %}
+        {% for story in user_stories %}
+        <a href="{% url 'news:story' story.id %}">
+            <div> 
+                <h4>
+                    {{ story.pub_date|date:'d M y' }} <img src="{% static '/news/images/blue-neon-star.png' %}" id="id_star"> {{ story.title }}
+                </h4>           
+            </div>
+            <div>    
+                <p>{{ story.content|truncatewords:50 }}</p>
+            </div>
+            {% if story.image_url %}
+            <div>
+                <img src="{{ story.image_url }}" id="list-image">
+            </div>
+            {% endif %}
+            <hr>
+        </a>
+        {% endfor %}    
+    </a>
+    {% else %}
+        <p>No stories are available.</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

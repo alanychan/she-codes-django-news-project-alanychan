@@ -1,17 +1,25 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Oswald:200,400,700');
-        
-* {
-    /* background: linear-gradient(60deg,#c9b2c5,#afb6e5); */
-    background: #141414;
-    color: #9b9b9b;
-    /* color: #BFA181; */
+
+/* * {
+    background: #212020;
+    color: #EAE7DD;
+    font-family: 400 'Quicksand', sans-serif;
+} */
+
+a {
+    color: #EAE7DD;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
 }
 
+
 body {
-    /* background-color: rgb(240, 239, 239); */
-    /* background-color: #141414; */
+    background: #212020;
+    color: #EAE7DD;
+    font-family: 400 'Quicksand', sans-serif;
+    margin: 0 20px;
     padding-bottom: 100px;
 }
 
@@ -28,27 +36,32 @@ header {
 
 h1 {
     color: #FFFFFF;
-    /* font-family: 'Montserrat Subrayada', sans-serif; */
-    font-family: 'Quicksand', sans-serif;
+    /* font-family: 'Quicksand', sans-serif; */
     text-decoration: none;
     font-size: 3rem;
     margin: 0;
 }
 
-h2 {
-    color: #dddddd;
-    /* font-family: 'Montserrat Subrayada', sans-serif;  */
-    font-family: 'Quicksand', sans-serif;
-    text-decoration: none;
+h3 {
+    font: 300 20px 'Oswald', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 0px 10px 0px;
 }
 
-h3 {
-    font-size: 2rem;
+h4 {
+    font: 300 20px 'Oswald', sans-serif;
+    font-size: 1rem;
+    /* font-weight: bold;     */
     margin: 0;
+    /* padding: 0px 10px 2px 0px; */
 }
 
 hr {
-    border-color: rgba(255,255,255,.6);
+    border-color: #ffffff99;
+    margin: 20px auto;
+    width: 500px;
 }
 
 #header-text {
@@ -56,26 +69,44 @@ hr {
     display: flex;
 }
 
-nav {
-    color: #9b9b9b;
-    flex-basis: 20%;
+#id-write-story {
+    color: #0693e3;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    float: right;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+    text-transform: uppercase;
+    padding: 35px 5px 20px 0px;
 }
 
-a {
+nav a {
+    /* color: #9b9b9b; */
+    align-items: flex-end;
     color: #0693e3;
+    display: flex;
+    flex-basis: 20%;
+    flex-direction: column;
     font-size: 1rem;
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 1px;
     line-height: 1.5;
-    margin: 2px;
+    margin: 0px;
     text-decoration: none;
 }
 
+
+/* a:active {
+    text-decoration: none;
+} */
+
+a>img,
+#list-image {
+    max-width: 400px;
+}
+
 /*
-Form css
+Beginning of Form css
 */
 
 #container-section {
@@ -84,7 +115,8 @@ Form css
     box-sizing: content-box;
 }
 
-.section-header {
+.section-header,
+h2 {
     text-align: center;
     margin: 0 auto;
     padding: 10px 0;
@@ -94,7 +126,8 @@ Form css
     letter-spacing: 6px;
 }
 
-.form-wrapper {
+.form-wrapper,
+form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -106,33 +139,48 @@ Form css
 
 /* Left contact page */
 .form-horizontal {
-/*float: left;*/
+    /*float: left;*/
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     gap: 5px;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
+    position: relative;
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
     width: 100%;
+}
+
+.form-horizontal a {
+    color: #337ab7;
 }
 
 label {
     width: 130px;
 }
 
-.form-control, 
-textarea, input, p {
-    /* background-color: #000; */
+.class-label {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+.form-control,
+textarea,
+input,
+p {
+    background-color: #212020;
     border-radius: 5px;
     color: #fff;
-    font: 400 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
     font-size: 14px;
     letter-spacing: 1px;
     line-height: 1.5;
     margin: 5px 0px;
-    max-width: 400px;
     width: 100%;
 }
 
@@ -142,31 +190,106 @@ textarea, input, p {
     width: 100%;
 }
 
-.send-button, button {
+.send-button,
+button,
+input[type="submit"] {
     background-color: #337ab7;
     border-color: #337ab7;
     border-radius: 60px;
     color: #fff;
     cursor: pointer;
+    font-size: 14px;
+    height: 34px;
+    width: 150px;
+}
+
+.helptext,
+ul>li {
+    color: #f76b6b;
+    /* font: 400 10px 'Oswald', sans-serif; #EAE7DD;*/
+    letter-spacing: 1px;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+/*CSS for user profile starts here*/
+.profile-wrapper {
+    border: 1.5px solid #BFA181;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    position: relative;
+}
+
+/*CSS for user profile card starts here*/
+#profile-card {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 whitesmoke;
+    max-width: 250px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Oswald';
+}
+
+.profile-title {
+    background-color: white;
+    color: grey;
     font-size: 18px;
-    height: 34px;
-    width: 40%;
 }
 
-.alt-send-button {
-    width: 400px;
-    height: 34px;
-    transition: all .2s ease-in-out;
+#profile-card #contact-button {
+    border: none;
+    border-radius: 0px;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
 }
 
-.send-text {
-    display: block;
-    margin-top: 10px;
-    font: 700 12px 'Lato', sans-serif;
-    letter-spacing: 2px;
+#profile-card>a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
 }
 
-.alt-send-button:hover {
-    transform: translate3d(0px, -29px, 0px);
+#profile-card>button:hover,
+a:hover {
+    opacity: 0.7;
 }
 
+#h1-profile-card {
+    background-color: white;
+    color: black;
+}
+
+#id-social {
+    background-color: white;
+    color: black;
+    margin: 24px 0;
+}
+
+#id-social #id-a-profile-card {
+    color: #000;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+#contact {
+    background-color: black;
+    border-radius: 0px;
+    color: #FF595A;
+    font-size: 1rem;
+    font-family: 'Oswald';
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+}

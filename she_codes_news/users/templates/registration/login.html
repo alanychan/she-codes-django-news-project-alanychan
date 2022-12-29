@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_table }}
-    <button type="submit">Login</button>
-</form>
+
+{% if not request.user.is_authenticated %}
+    <h2>Login</h2>
+    <form  class="form-horizontal" method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Login</button>
+        <p>Need an account: <a href="{% url 'users:createAccount' %}">Sign Up</a></p>
+    </form>
+    
+{% endif %}
 {% endblock %}
