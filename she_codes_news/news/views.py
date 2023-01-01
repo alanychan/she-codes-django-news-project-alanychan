@@ -1,5 +1,6 @@
 # from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
@@ -13,7 +14,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         '''Return all news stories.'''
-        return NewsStory.objects.all()
+        return NewsStory.objects.all().order_by('-pub_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -38,11 +39,11 @@ class StoryView(generic.DetailView):
         return context
 
 # add view to use Storyform 
-# @login_required
-# class AddStoryView(LoginRequiredMixin, generic.CreateView):
-    # login_url = reverse_lazy('login')
-    # redirect_field_name = 'redirect_to'
-class AddStoryView(generic.CreateView):
+
+class AddStoryView(LoginRequiredMixin, generic.CreateView):
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'redirect_to'
+
     form_class = StoryForm
     context_object_name = 'storyForm'
     template_name = 'news/createStory.html'
@@ -53,11 +54,11 @@ class AddStoryView(generic.CreateView):
         return super().form_valid(form)
 
 class AddCommentView(LoginRequiredMixin, generic.CreateView):
-    form_class = CommentForm
-    template_name = "news/createComment.html"
-
     login_url = reverse_lazy('users:login')
     redirect_field_name = 'redirect_to'
+
+    form_class = CommentForm
+    template_name = "news/createComment.html"
 
     def form_valid(self, form):
         form.instance.author = self.request.user

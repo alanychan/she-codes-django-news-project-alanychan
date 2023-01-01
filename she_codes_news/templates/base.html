@@ -8,6 +8,7 @@
         <title>She Codes News</title>
         <meta name="description" content="">
         <meta name="author" content="Hayley van Waas">
+        <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
             {% block stylesheets %}{% endblock %}
@@ -24,7 +25,10 @@
             <!-- include nav here -->
             {% include './nav.html' %}
         </header>
-
+        <!-- include header.html here -->
+        <div id="header-menu">
+            {% include './header.html' %}
+        </div>    
         <!-- content blocks here -->
         {% block content %}{% endblock %}
     </body>

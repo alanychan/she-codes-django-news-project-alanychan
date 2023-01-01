@@ -5,7 +5,7 @@
 
 {% include "./profileCard.html" %}
 
-<h3>List of Stories<a href="{% url 'news:newStory' %}" id="id-write-story">Write New Story</a></h3>
+<h3>List of Stories</h3>
 <div>
     {% if user_stories %}
         {% for story in user_stories %}

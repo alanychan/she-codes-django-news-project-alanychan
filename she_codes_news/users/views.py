@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.views import generic
@@ -38,7 +39,17 @@ class EditAccountView(LoginRequiredMixin, generic.UpdateView):
     form_class = CustomUserChangeForm
     model = CustomUser
     context_object_name = 'CustomUser'
-    template_name = 'users/createAccount.html'
+    template_name = 'users/updateAccount.html'
+    
+    def form_valid(self, form):
+        pk = self.kwargs.get("pk")
+        CustomeUser = get_object_or_404(CustomUser, pk=pk)
+        form.instance.CustomUser = CustomUser
+        return super().form_valid(form)
+
+    def get_success_url(self) -> str:
+        pk = self.kwargs.get("pk")
+        return reverse_lazy('users:viewAccount', kwargs={'pk':pk})
 
 class ProfileView(generic.DetailView):
     model = CustomUser
@@ -50,6 +61,6 @@ class ProfileView(generic.DetailView):
         context = super().get_context_data(**kwargs)
 
      #user's stories published
-        context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk'])
+        context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk']).order_by('-pub_date')
 
         return context

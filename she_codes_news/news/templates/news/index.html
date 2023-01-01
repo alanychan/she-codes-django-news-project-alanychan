@@ -7,9 +7,8 @@
 
 {% block content %}
 
-    <a href="{% url 'news:newStory' %}" id="id-write-story">Write New Story</a>
     <h2>Latest Stories</h2>
-
+    <div id="id-write-story"><a href="{% url 'news:newStory' %}" id="id-write-story">Write New Story</a></div>
     <div id="latest-stories">
         {% if latest_stories %}
             {% for story in latest_stories %}

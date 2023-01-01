@@ -3,12 +3,12 @@
 {% block content %}
 
 {% if not request.user.is_authenticated %}
-    <h2>Login</h2>
+    <h2>Login to start</h2>
     <form  class="form-horizontal" method="post">
         {% csrf_token %}
         {{ form.as_p}}
         <button type="submit">Login</button>
-        <p>Need an account: <a href="{% url 'users:createAccount' %}">Sign Up</a></p>
+        <p>Need an account <a href="{% url 'users:createAccount' %}" id="a-signing">Sign Up</a></p>
     </form>
     
 {% endif %}

@@ -1,14 +1,14 @@
 {% load static %}
 
 <div class="story-card" id="story-card-{{ position }}">
-    <h3><a id="id_author" href="{% url 'users:viewAccount' story.author.id %}">{{ story.author }}</a></h3>
+    <h3><a id="id-author" href="{% url 'users:viewAccount' story.author.id %}">{{ story.author }}</a></h3>
     <a href="{% url 'news:story' story.id %}">
         {% if story.image_url %}
             <img src="{{ story.image_url }}">
         {% else %}
             <img src="https://picsum.photos/300?random={{ story.id }}">
         {% endif %}
-        <p>
+        <p id="id-story-card-text">
             {{ story.pub_date|date:'d M y' }} 
             <img src="{% static '/news/images/blue-neon-star.png' %}" style="height: 15px; width:15px;"> 
             {{ story.title }}

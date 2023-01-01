@@ -1,8 +1,15 @@
 .story-card {
     margin: 3px;
-    border: 1px solid #ffffff99;
+    border: 1px solid transparent;
+    border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;
     border-radius: 10px;
     padding: 5px;
+
+    /* background: linear-gradient(to right, darkblue, darkorchid) border-box;
+    border-radius: 50em;
+    border: 4px solid transparent; */
+
+    /* background: linear-gradient(to right, red, purple); */
 }
 
 .story-card img {
@@ -93,6 +100,7 @@
 }
 
 #story-content p {
+    color: whitesmoke;
     font: 300 1rem 'Quicksand', sans-serif;
     letter-spacing: 1px;
     line-height: 1.5;
@@ -108,15 +116,17 @@
     width: 200px;
 }
 
-#id_author {
-    color: #EAE7DD;
-    font-size: 14px;
+#id-author,
+#a-signing {
+    color: #AE4DFF;
+    font-size: 16px;
     letter-spacing: 1.5;
     margin: 0;
+    padding-bottom: 2.5px;
 }
 
-#id_pub_date {
-    width: 130px;
+#id-story-card-text {
+    color: white;
 }
 
 #id_star {

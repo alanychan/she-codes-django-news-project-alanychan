@@ -18,6 +18,7 @@ class StoryForm(ModelForm):
         }
 
 class CommentForm(ModelForm):
+    content = forms.CharField(widget=forms.Textarea, label='Leave a comment')
 
     class Meta:
         model = Comment

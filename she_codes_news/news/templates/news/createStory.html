@@ -1,6 +1,7 @@
 <!-- <head><title>Write a New Story</title></head> -->
 {% extends "base.html" %}
 {% load static %}
+
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
@@ -17,10 +18,10 @@
 {% else %}
 <div class="form-horizontal">
     <div>Create an account to start writing.
-        <a href="{% url 'users:createAccount' %}" id="a-link">Sign Up</a>
+        <a href="{% url 'users:createAccount' %}" id="a-signing">Sign Up</a>
     </div>
     <div>
-        Already have an account? <a href="{% url 'login' %}" id="a-link">Sign In</a>
+        Already have an account? <a href="{% url 'login' %}" id="a-signing">Sign In</a>
     </div>
 </div>
 {% endif %}
