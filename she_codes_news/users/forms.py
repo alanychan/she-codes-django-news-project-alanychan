@@ -28,5 +28,3 @@ class CustomUserChangeForm(UserChangeForm):
             'bio_content',
             'photo_url',
         ]
-
-        

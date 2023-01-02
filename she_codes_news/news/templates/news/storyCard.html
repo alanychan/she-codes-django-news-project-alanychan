@@ -1,7 +1,15 @@
 {% load static %}
 
 <div class="story-card" id="story-card-{{ position }}">
-    <h3><a id="id-author" href="{% url 'users:viewAccount' story.author.id %}">{{ story.author }}</a></h3>
+    <h3>
+        <a href="{% url 'users:viewAccount' story.author.id %}">
+        {% if story.author.first_name or story.author.last_name %}
+            {{ story.author.first_name }} {{ story.author.last_name }}
+        {% else %}
+            {{ story.author.username }}
+        {% endif %}
+        </a>
+    </h3>
     <a href="{% url 'news:story' story.id %}">
         {% if story.image_url %}
             <img src="{{ story.image_url }}">

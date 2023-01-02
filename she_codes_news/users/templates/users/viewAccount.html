@@ -6,7 +6,7 @@
 {% include "./profileCard.html" %}
 
 <h3>List of Stories</h3>
-<div>
+<div id="id-list-stories">
     {% if user_stories %}
         {% for story in user_stories %}
         <a href="{% url 'news:story' story.id %}">
@@ -18,11 +18,11 @@
             <div>    
                 <p>{{ story.content|truncatewords:50 }}</p>
             </div>
-            {% if story.image_url %}
+            <!-- {% if story.image_url %}
             <div>
                 <img src="{{ story.image_url }}" id="list-image">
             </div>
-            {% endif %}
+            {% endif %} -->
             <hr>
         </a>
         {% endfor %}    

@@ -37,13 +37,14 @@
     {% for comment in story.comments.all %}
         <li> 
             <div>
-            <span>{% if comment.author.first_name or comment.author.last_name %}
-                {{ comment.author.first_name }} {{ comment.author.last_name }}
-              {% else %}
-                {{ comment.author.username }}
-              {% endif %}
-            </span> 
-            commented: {{comment.content }}
+                <span>
+                {% if comment.author.first_name or comment.author.last_name %}
+                    {{ comment.author.first_name }} {{ comment.author.last_name }}
+                {% else %}
+                    {{ comment.author.username }}
+                {% endif %}
+                </span> 
+                commented: {{comment.content }}
             </div>
             <div>
                 <span id="id-comment-date">posted on {{ comment.created_at }}</span>
