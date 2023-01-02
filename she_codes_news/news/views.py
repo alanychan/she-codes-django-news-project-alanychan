@@ -2,6 +2,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.views import generic
+from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 from .models import NewsStory
@@ -85,3 +86,29 @@ class AddCommentView(LoginRequiredMixin, generic.CreateView):
     def get_success_url(self) -> str:
         pk = self.kwargs.get("pk")
         return reverse_lazy('news:story', kwargs={'pk':pk})
+
+class EditStoryView(LoginRequiredMixin, generic.UpdateView):
+    login_url = reverse_lazy('users:login')
+    redirect_field_name = 'redirect_to'
+
+    form_class = StoryForm
+    # fields = ['title', 'content', 'image_url']
+    model = NewsStory
+    context_object_name = 'NewsStory'
+    template_name = 'news/editStory.html'
+    # success_url = reverse_lazy('news/<pk>')
+
+    def form_valid(self, form):
+        pk = self.kwargs.get("pk")
+        # story = get_object_or_404(NewsStory, pk=pk)
+        # form.instance.story = story
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse_lazy('news:story', kwargs={'pk': pk})
+
+# class PostDeleteView(DeleteView):
+#     model = Post
+#     template_name = 'social/post_delete.html'
+#     success_url = reverse_lazy('post-list')

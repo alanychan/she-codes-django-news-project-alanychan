@@ -43,7 +43,7 @@ class EditAccountView(LoginRequiredMixin, generic.UpdateView):
     
     def form_valid(self, form):
         pk = self.kwargs.get("pk")
-        CustomeUser = get_object_or_404(CustomUser, pk=pk)
+        CustomUser = get_object_or_404(CustomUser, pk=pk)
         form.instance.CustomUser = CustomUser
         return super().form_valid(form)
 

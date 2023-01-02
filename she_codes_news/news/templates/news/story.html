@@ -17,7 +17,12 @@
         {% endif %}
         </a>
     </div>
-    <h2>{{ story.title }}</h2>  
+    <h2>
+        {{ story.title }}
+        {% if request.user.is_authenticated and story.author.id == request.user.id %}
+            <a href="{% url 'news:editStory' story.id %}" id="id-edit-story">Edit Story</a>
+        {% endif %}
+    </h2>
     <div id="story-content">
         <!-- <img src="{% static '/news/images/placeholder-5.jpg' %}"> -->
         {% if story.image_url %}
@@ -25,8 +30,10 @@
         {% else %}
             <img src="{% static '/images/no-photo-available.png' %}" style="height: 100px; width: auto">
         {% endif %}
+    
         {{ story.content|linebreaks }}
     </div>
+    
 </div>
 
 <div>

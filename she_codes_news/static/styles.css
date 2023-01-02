@@ -296,6 +296,25 @@ hr {
     font-size: smaller;
 }
 
+#id-edit-story {
+    border: 1px solid var(--vColor-Title);
+    border-radius: 8px;
+    font-family: var(--vFont-Title);
+    font-size: x-small;
+    margin: 5px;
+    padding: 5px;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+
+#id-edit-story:hover {
+    background-color: var(--vColor-Hover-Box);
+    border: 1px solid var(--vColor-Post-Button-Hover);
+    border-radius: 8px;
+    color: #272244;
+    font-weight: bolder;
+}
+
 #id-list-stories {
     padding: 20px;
 }
@@ -358,7 +377,7 @@ label {
 }
 
 #menu-outer {
-    height: 84px;
+    height: 55px;
     margin: 10px;
 }
 
@@ -461,6 +480,7 @@ h3#h1-profile-card {
 ul#horizontal-list {
     text-transform: uppercase;
     list-style: none;
+    margin: 0 auto;
     padding: 12px;
 }
 
