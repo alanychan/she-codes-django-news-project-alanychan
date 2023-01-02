@@ -1,25 +1,16 @@
 .story-card {
     margin: 25px;
-    border: 2px solid white;
+    border: 2px solid var(--vColor-Site);
     padding: 25px;
     border-width: 5px 3px 3px 5px;
     border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
     transform: rotate(2deg);
-
-    /* border-top-left-radius: 37px 140px;
-    border-top-right-radius: 23px 130px;
-    border-bottom-left-radius: 110px 19px;
-    border-bottom-right-radius: 120px 24px;
-    padding: 25px 40px;
-    transform: rotate(-1deg);
-    box-shadow: 3px 15px 8px -10px #fcf1ca;
-    transition: all 0.13s ease-in; */
 }
 
 .story-card:hover {
     /* transform: translateY(-10px) rotate(1deg); */
-    transform: translateY(-10px) rotate(-6deg);
-    box-shadow: 3px 15px 8px -10px #fcf1ca;
+    transform: translateY(-10px) rotate(-3deg);
+    box-shadow: 3px 15px 20px -10px var(--vColor-Title);
 }
 
 .story-card img {
@@ -94,13 +85,13 @@
     margin-right: 5px;
 }
 
-#all-stories {
+#old-stories {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-#all-stories .story-card {
+#old-stories .story-card {
     flex-basis: 32%;
     flex-grow: 1;
 }
@@ -110,8 +101,8 @@
 }
 
 #story-content p {
-    color: whitesmoke;
-    font: 300 1rem 'Quicksand', sans-serif;
+    color: var(--vColor-Site);
+    font: var(--vFont-Family-Site);
     letter-spacing: 1px;
     line-height: 1.5;
     padding: 5px;
@@ -126,14 +117,20 @@
     width: 200px;
 }
 
-#id-author,
-#a-signing {
-    color: var(--vColor-Title);
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+#id-author {
+    color: var(--vColor-SubTitle);
+    font-size: 18px;
+    font-family: var(--vFont-Family-Title);
     margin: 0;
     padding-bottom: 2.5px;
     text-transform: uppercase;
+}
+
+#id-author:hover {
+    background-color: var(--vColor-Hover-Box);
+    border-radius: 7px;
+    color: var(--vColor-Title);
+    padding: 5px;
 }
 
 #id-story-card-text {

@@ -8,14 +8,22 @@
 {% block content %}
 
 <div id="story-wrapper">
-    <h2>{{ story.title }}</h2>
-    <h3><a href="{% url 'users:viewAccount' story.author.id %}" id="id-author">{{ story.author }}</a></h3>
+    <div>
+        <a href="{% url 'users:viewAccount' story.author.id %}" id="id-author">
+        {% if story.author.first_name or story.author.last_name %}
+            {{ story.author.first_name }} {{ story.author.last_name }}
+        {% else %}
+            {{ story.author.username }}
+        {% endif %}
+        </a>
+    </div>
+    <h2>{{ story.title }}</h2>  
     <div id="story-content">
         <!-- <img src="{% static '/news/images/placeholder-5.jpg' %}"> -->
         {% if story.image_url %}
             <img src="{{ story.image_url }}">
         {% else %}
-            <img src="https://picsum.photos/300?random={{ story.id }}">
+            <img src="{% static '/images/no-photo-available.png' %}" style="height: 100px; width: auto">
         {% endif %}
         {{ story.content|linebreaks }}
     </div>
@@ -27,7 +35,7 @@
         <form method="POST" action="{{ form_action }}" id="id-comment-form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Add Comment</button>
+            <button type="submit">Post</button>
         </form>
     </div>
     

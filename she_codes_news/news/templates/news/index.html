@@ -7,8 +7,12 @@
 
 {% block content %}
 
+<!-- <div>
+    <div class="write-story-class"><a href="{% url 'news:allStories' %}" id="write-story-id">View All Stories</a></div>
+            
+    <div class="write-story-class"><a href="{% url 'news:newStory' %}" id="write-story-id">Write New Story</a></div>
+</div> -->
     <h2>Latest Stories</h2>
-    <div id="id-write-story"><a href="{% url 'news:newStory' %}" id="id-write-story">Write New Story</a></div>
     <div id="latest-stories">
         {% if latest_stories %}
             {% for story in latest_stories %}
@@ -19,10 +23,11 @@
             <p>No stories are available.</p>
         {% endif %}
     </div>
-
-    <div id="all-stories">
-        {% if latest_stories %}
-            {% for story in all_stories %}
+    
+    <h3>Oldest Stories</h3>
+    <div id="old-stories">
+        {% if old_stories %}
+            {% for story in old_stories %}
                 <!-- <p>{{ story.title }}</p> -->
                 {% include "./storyCard.html" with story=story %}
             {% endfor %}

@@ -19,7 +19,7 @@
     {{ profile.username }}
   {% endif %}
   </h3>
-  <p class="profile-title" alt="about me">{{ profile.bio_content|truncatewords:20 }}</p>
+  <p class="profile-title" alt="about me">{{ profile.bio_content|truncatewords:8 }}</p>
 
   <!-- <div id="id-social">
     <a href="#" id="id-a-profile-card"><i class="fa fa-dribbble"></i></a> 
@@ -29,6 +29,5 @@
   </div> -->
   <p id="contact"><a href="mailto:{{ profile.email }}" title="Send me an email" class="contact">Contact</a></p>
 </div>
-
 
 

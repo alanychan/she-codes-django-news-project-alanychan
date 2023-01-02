@@ -22,6 +22,7 @@ class IndexView(generic.ListView):
         context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date', '-id')[:4]
         #returns the oldest 4 stories
         context['old_stories'] = NewsStory.objects.all().order_by('pub_date')[:4]
+
         
         return context
 
@@ -38,6 +39,20 @@ class StoryView(generic.DetailView):
         context["form_action"] = reverse_lazy('news:addComment', kwargs={'pk':self.kwargs.get('pk')})
         return context
 
+class ListStoriesView(generic.ListView):
+    template_name = 'news/allStories.html'
+    context_object_name = "all_stories"
+
+    def get_queryset(self):
+        '''Return all news stories.'''
+        return NewsStory.objects.all().order_by('-pub_date')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # #returns all stories
+        context['list_stories'] = NewsStory.objects.all().order_by('-pub_date')
+        
+        return context
 # add view to use Storyform 
 
 class AddStoryView(LoginRequiredMixin, generic.CreateView):
