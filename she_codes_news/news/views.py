@@ -22,7 +22,7 @@ class IndexView(generic.ListView):
         #returns the 4 newest stories
         context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date', '-id')[:4]
         #returns the oldest 4 stories
-        context['old_stories'] = NewsStory.objects.all().order_by('pub_date')[:4]
+        context['old_stories'] = NewsStory.objects.all().order_by('pub_date')[:3]
 
         
         return context

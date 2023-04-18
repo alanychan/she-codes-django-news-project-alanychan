@@ -7,9 +7,9 @@
 <h2>Profile Card</h2>
 <div id="profile-card">
   {% if profile.photo_url %}
-    <img src="{{ profile.photo_url }}" alt="{{profile.username}}" style="height: 100px; width: 50%">
+    <img src="{{ profile.photo_url }}" alt="{{profile.username}}">
   {% else %}
-      <img src="{% static '/images/profile-avatar.png' %}" style="height: 100px; width: auto">
+      <img src="{% static '/images/profile-avatar.png' %}">
   {% endif %}
   
   <h3 id="h1-profile-card">
@@ -19,7 +19,7 @@
     {{ profile.username }}
   {% endif %}
   </h3>
-  <p class="profile-title" alt="about me">{{ profile.bio_content|truncatewords:8 }}</p>
+  <p class="profile-title" alt="about me">{{ profile.bio_content|truncatewords:20 }}</p>
 
   <!-- <div id="id-social">
     <a href="#" id="id-a-profile-card"><i class="fa fa-dribbble"></i></a> 

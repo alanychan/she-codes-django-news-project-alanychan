@@ -10,7 +10,9 @@
         <a href="{% url 'news:story' story.id %}">
             <div> 
                 <h4>
-                    {{ story.pub_date|date:'d M y' }} <img src="{% static '/news/images/blue-neon-star.png' %}" id="id_star"> {{ story.title }}
+                    {{ story.title }}
+                    <img src="{% static '/news/images/blue-neon-star.png' %}" id="id_star">
+                    {{ story.pub_date|date:'d M y' }} 
                 </h4>           
             </div>
             <div>    

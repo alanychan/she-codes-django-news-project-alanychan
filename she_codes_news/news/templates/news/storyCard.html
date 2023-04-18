@@ -1,27 +1,27 @@
 {% load static %}
 
 <div class="story-card" id="story-card-{{ position }}">
-    <h3>
-        <a href="{% url 'users:viewAccount' story.author.id %}" id="id-author">
-        {% if story.author.first_name or story.author.last_name %}
-            {{ story.author.first_name }} {{ story.author.last_name }}
-        {% else %}
-            {{ story.author.username }}
-        {% endif %}
-        </a>
-    </h3>
     <a href="{% url 'news:story' story.id %}">
+        <h3 id="id-story-card-text-main">
+            <img src="{% static '/news/images/blue-neon-star-icon.png' %}" style="height: 15px; width:15px;">
+            {{ story.title }}
+            <img src="{% static '/news/images/blue-neon-star-icon.png' %}" style="height: 15px; width:15px;">
+            <!-- {{ story.content|truncatewords:20 }} -->
+        </h3>
         {% if story.image_url %}
             <img src="{{ story.image_url }}">
         {% else %}
             <img src="https://picsum.photos/300?random={{ story.id }}">
         {% endif %}
-        <p id="id-story-card-text">
-            {{ story.pub_date|date:'d M y' }} 
-            <img src="{% static '/news/images/blue-neon-star.png' %}" style="height: 15px; width:15px;"> 
-            {{ story.title }}
-            <!-- {{ story.content|truncatewords:20 }} -->
-        </p>
     </a>
+    <p>
+        <a href="{% url 'users:viewAccount' story.author.id %}" id="id-author">
+        {% if story.author.first_name or story.author.last_name %}
+            {{ story.author.first_name }} {{ story.author.last_name }}
+        {% else %}
+            {{ story.author.username }}
+        {% endif %} written on {{ story.pub_date|date:'d F Y' }}
+        </a>
+    </p>
     
 </div>
